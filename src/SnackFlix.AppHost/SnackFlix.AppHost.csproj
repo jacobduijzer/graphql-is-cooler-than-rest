@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0"/>
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsAspireHost>true</IsAspireHost>
+        <UserSecretsId>6822f081-9152-4f47-ae23-c421b4855b2c</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Aspire.Hosting.AppHost" Version="9.0.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\SnackFlix.Api\SnackFlix.Api.csproj" />
+      <ProjectReference Include="..\SnackFlix.Movies\SnackFlix.Movies.csproj" />
+      <ProjectReference Include="..\SnackFlix.Reviews\SnackFlix.Reviews.csproj" />
+      <ProjectReference Include="..\SnackFlix.Snacks\SnackFlix.Snacks.csproj" />
+    </ItemGroup>
+
+</Project>
