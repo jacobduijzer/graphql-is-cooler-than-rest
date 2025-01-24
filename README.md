@@ -1,6 +1,22 @@
 # graphql-is-cooler-than-rest
 GraphQL is cooler than (the) REST!
 
+## TODO List
+
+- [x] Queries
+    - [x] Movies
+    - [x] Snack recommendations
+    - [x] Ratings
+- [x] Mutations
+    - [x] Add rating for movie 
+- [ ] Subscriptions
+    - [ ] Rating added for movie
+- [x] Resolvers
+    - [x] Snack recommendations 
+    - [x] Ratings
+- [ ] Data Loaders
+- [ ] Authentication & Authorization
+
 ## Movies
 
 ```graphql
@@ -18,7 +34,8 @@ query movies {
     movie(id: 1) {
         title
         year
-        genre
+        genres
+        ratings
         description
     }
 
@@ -29,7 +46,7 @@ query movies {
 
     # all movie titles, filtered by genre, should equal "Action"
     b: movies(where:  {
-        genre:  {
+        genres:  {
             some:  {
                 eq: "Action"
             }

@@ -9,9 +9,10 @@ var content = builder
 var movies = builder
     .AddProject<Projects.SnackFlix_Movies>("movies")
     .WithEnvironment("CONTENT_ENDPOINT", content.GetEndpoint("http"));
-
+var reviews = builder.AddProject<Projects
+    .SnackFlix_Reviews>("reviews")
+    .WithEnvironment("CONTENT_ENDPOINT", content.GetEndpoint("http"));
 var snacks = builder.AddProject<Projects.SnackFlix_Snacks>("snacks");
-var reviews = builder.AddProject<Projects.SnackFlix_Reviews>("reviews");
 
 var api = builder.AddProject<Projects.SnackFlix_Api>("api")
     .WithReference(movies)

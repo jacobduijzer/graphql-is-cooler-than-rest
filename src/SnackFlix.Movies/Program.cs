@@ -16,7 +16,7 @@ app.MapGet("/genres", async (IMoviesApi movies) =>
 {
     var allMovies = await movies.All();
     return allMovies
-        .SelectMany(m => m.Genre)
+        .SelectMany(m => m.Genres)
         .Distinct();
 });
 app.Run();

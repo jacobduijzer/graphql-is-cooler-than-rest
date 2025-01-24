@@ -4,7 +4,7 @@
       "id": 1,
       "title": "The Shawshank Redemption",
       "year": 1994,
-      "genre": [
+      "genres": [
         "Crime",
         "Drama"
       ],
@@ -14,7 +14,7 @@
       "id": 2,
       "title": "The Godfather",
       "year": 1972,
-      "genre": [
+      "genres": [
         "Crime",
         "Drama"
       ],
@@ -24,7 +24,7 @@
       "id": 3,
       "title": "The Dark Knight",
       "year": 2008,
-      "genre": [
+      "genres": [
         "Action",
         "Crime",
         "Drama"
@@ -35,7 +35,7 @@
       "id": 4,
       "title": "Inception",
       "year": 2010,
-      "genre": [
+      "genres": [
         "Action",
         "Adventure",
         "Sci-Fi"
@@ -46,7 +46,7 @@
       "id": 5,
       "title": "Forrest Gump",
       "year": 1994,
-      "genre": [
+      "genres": [
         "Drama",
         "Romance"
       ],
@@ -56,7 +56,7 @@
       "id": 6,
       "title": "The Matrix",
       "year": 1999,
-      "genre": [
+      "genres": [
         "Action",
         "Sci-Fi"
       ],
@@ -66,7 +66,7 @@
       "id": 7,
       "title": "Pulp Fiction",
       "year": 1994,
-      "genre": [
+      "genres": [
         "Crime",
         "Drama"
       ],
@@ -76,7 +76,7 @@
       "id": 8,
       "title": "Schindler's List",
       "year": 1993,
-      "genre": [
+      "genres": [
         "Biography",
         "Drama",
         "History"
@@ -87,7 +87,7 @@
       "id": 9,
       "title": "The Lord of the Rings: The Return of the King",
       "year": 2003,
-      "genre": [
+      "genres": [
         "Adventure",
         "Drama",
         "Fantasy"
@@ -98,7 +98,7 @@
       "id": 10,
       "title": "Star Wars: Episode IV - A New Hope",
       "year": 1977,
-      "genre": [
+      "genres": [
         "Action",
         "Adventure",
         "Fantasy"
@@ -109,7 +109,7 @@
       "id": 11,
       "title": "Titanic",
       "year": 1997,
-      "genre": [
+      "genres": [
         "Drama",
         "Romance"
       ],
@@ -119,7 +119,7 @@
       "id": 12,
       "title": "The Lion King",
       "year": 1994,
-      "genre": [
+      "genres": [
         "Animation",
         "Adventure",
         "Drama"
@@ -130,7 +130,7 @@
       "id": 13,
       "title": "Gladiator",
       "year": 2000,
-      "genre": [
+      "genres": [
         "Action",
         "Adventure",
         "Drama"
@@ -141,7 +141,7 @@
       "id": 14,
       "title": "Jurassic Park",
       "year": 1993,
-      "genre": [
+      "genres": [
         "Action",
         "Adventure",
         "Sci-Fi"
@@ -152,7 +152,7 @@
       "id": 15,
       "title": "The Silence of the Lambs",
       "year": 1991,
-      "genre": [
+      "genres": [
         "Crime",
         "Drama",
         "Thriller"
@@ -163,7 +163,7 @@
       "id": 16,
       "title": "Avengers: Endgame",
       "year": 2019,
-      "genre": [
+      "genres": [
         "Action",
         "Adventure",
         "Drama"
@@ -174,7 +174,7 @@
       "id": 17,
       "title": "The Wizard of Oz",
       "year": 1939,
-      "genre": [
+      "genres": [
         "Adventure",
         "Family",
         "Fantasy"
@@ -185,7 +185,7 @@
       "id": 18,
       "title": "Black Panther",
       "year": 2018,
-      "genre": [
+      "genres": [
         "Action",
         "Adventure",
         "Sci-Fi"
@@ -196,7 +196,7 @@
       "id": 19,
       "title": "Frozen",
       "year": 2013,
-      "genre": [
+      "genres": [
         "Animation",
         "Adventure",
         "Comedy"
@@ -207,12 +207,20 @@
       "id": 20,
       "title": "The Avengers",
       "year": 2012,
-      "genre": [
+      "genres": [
         "Action",
         "Adventure",
         "Sci-Fi"
       ],
       "description": "Earth's mightiest heroes must come together to stop Loki and his alien army from enslaving humanity."
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "accountId": 1,
+      "movieId": 1,
+      "rating": 5
     }
   ]
 }
