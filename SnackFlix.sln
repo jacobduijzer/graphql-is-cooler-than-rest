@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{215C62B9-3057-45AA-A42B-5DBF4385A378}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
+		moviedata.json = moviedata.json
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnackFlix.AppHost", "src\SnackFlix.AppHost\SnackFlix.AppHost.csproj", "{EB6DD358-5271-467B-983E-C963497CF042}"

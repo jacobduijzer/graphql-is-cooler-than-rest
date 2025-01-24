@@ -1,4 +1,4 @@
-﻿namespace SnackFlix.Api;
+﻿namespace SnackFlix.Api.Movies;
 
-public record Movie(Guid Id, string Title);   
+public record Movie(int Id, string Title, int Year, string Description, string[] Genres);   
    

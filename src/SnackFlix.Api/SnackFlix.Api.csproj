@@ -12,6 +12,7 @@
 
     <ItemGroup>
       <PackageReference Include="HotChocolate.AspNetCore" Version="14.3.0" />
+      <PackageReference Include="Refit.HttpClientFactory" Version="8.0.0" />
     </ItemGroup>
 
 </Project>
