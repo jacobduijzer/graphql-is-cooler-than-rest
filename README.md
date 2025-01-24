@@ -9,8 +9,8 @@ GraphQL is cooler than (the) REST!
     - [x] Ratings
 - [x] Mutations
     - [x] Add rating for movie 
-- [ ] Subscriptions
-    - [ ] Rating added for movie
+- [x] Subscriptions
+    - [x] Rating added for movie
 - [x] Resolvers
     - [x] Snack recommendations 
     - [x] Ratings

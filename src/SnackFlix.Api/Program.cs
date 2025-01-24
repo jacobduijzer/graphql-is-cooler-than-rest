@@ -8,15 +8,20 @@ builder.AddServiceConnections();
 
 builder.Services
     .AddGraphQLServer()
+    .AddInMemorySubscriptions()
     .AddType<MovieType>()
+    .AddType<ReviewType>()
     .AddQueryType(q => q.Name("queries"))
     .AddType<MovieQueries>()
     .AddMutationType(m => m.Name("mutations"))
     .AddType<ReviewMutations>()
+    .AddSubscriptionType(s => s.Name("subscriptions"))
+    .AddType<ReviewSubscriptions>()
     .AddFiltering();
 
 var app = builder.Build();
 app.UseSwaggerWithUi();
+app.UseWebSockets();
 app.MapGraphQL();
 
 app.Run();
