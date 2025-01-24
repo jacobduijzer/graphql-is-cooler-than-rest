@@ -10,4 +10,7 @@ public interface IReviewService
     
     [Post("/review/add")]
     Task<Review> Add(Review review);
+    
+    [Post("/reviews")]
+    Task<IEnumerable<Review>> Reviews([Body]List<int> movieIds);
 }

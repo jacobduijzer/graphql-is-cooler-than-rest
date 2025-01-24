@@ -14,7 +14,8 @@ GraphQL is cooler than (the) REST!
 - [x] Resolvers
     - [x] Snack recommendations 
     - [x] Ratings
-- [ ] Data Loaders
+- [x] Data Loaders
+  - [x] Movie ratings 
 - [ ] Authentication & Authorization
 
 ## Movies

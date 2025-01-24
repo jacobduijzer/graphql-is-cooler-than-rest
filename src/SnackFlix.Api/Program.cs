@@ -9,6 +9,7 @@ builder.AddServiceConnections();
 builder.Services
     .AddGraphQLServer()
     .AddInMemorySubscriptions()
+    .AddDataLoader<ReviewsDataLoader>()
     .AddType<MovieType>()
     .AddType<ReviewType>()
     .AddQueryType(q => q.Name("queries"))

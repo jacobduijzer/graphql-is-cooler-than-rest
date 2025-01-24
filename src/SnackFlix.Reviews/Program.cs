@@ -32,4 +32,15 @@ app.MapPost("/review/add", async (IReviewsApi reviews, [FromBody] Review review)
     return Results.Created($"/review/{review.Id}", review);
 });
 
+app.MapPost("/reviews", async (IReviewsApi reviews, [FromBody] List<int> movieIds) =>
+{
+    List<Review> allReviews = new();
+    foreach (var movieId in movieIds)
+    {
+        var review = await reviews.Reviews(movieId);
+        allReviews.AddRange(review);
+    }
+    return allReviews;
+});
+
 app.Run();
