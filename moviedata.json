@@ -29,7 +29,190 @@
         "Crime",
         "Drama"
       ],
-      "description": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice."
+      "description": "When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham."
+    },
+    {
+      "id": 4,
+      "title": "Inception",
+      "year": 2010,
+      "genre": [
+        "Action",
+        "Adventure",
+        "Sci-Fi"
+      ],
+      "description": "A thief who steals corporate secrets through dream-sharing technology is given a task to plant an idea in a target's subconscious."
+    },
+    {
+      "id": 5,
+      "title": "Forrest Gump",
+      "year": 1994,
+      "genre": [
+        "Drama",
+        "Romance"
+      ],
+      "description": "The story of Forrest Gump, a man with a low IQ, who recounts the historical events he inadvertently influenced."
+    },
+    {
+      "id": 6,
+      "title": "The Matrix",
+      "year": 1999,
+      "genre": [
+        "Action",
+        "Sci-Fi"
+      ],
+      "description": "A computer hacker learns about the true nature of reality and his role in the war against its controllers."
+    },
+    {
+      "id": 7,
+      "title": "Pulp Fiction",
+      "year": 1994,
+      "genre": [
+        "Crime",
+        "Drama"
+      ],
+      "description": "The lives of two mob hitmen, a boxer, a gangster's wife, and a pair of diner bandits intertwine in four tales of violence and redemption."
+    },
+    {
+      "id": 8,
+      "title": "Schindler's List",
+      "year": 1993,
+      "genre": [
+        "Biography",
+        "Drama",
+        "History"
+      ],
+      "description": "In German-occupied Poland, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis."
+    },
+    {
+      "id": 9,
+      "title": "The Lord of the Rings: The Return of the King",
+      "year": 2003,
+      "genre": [
+        "Adventure",
+        "Drama",
+        "Fantasy"
+      ],
+      "description": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring."
+    },
+    {
+      "id": 10,
+      "title": "Star Wars: Episode IV - A New Hope",
+      "year": 1977,
+      "genre": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "description": "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee, and two droids to save the galaxy from the Empire's world-destroying battle station."
+    },
+    {
+      "id": 11,
+      "title": "Titanic",
+      "year": 1997,
+      "genre": [
+        "Drama",
+        "Romance"
+      ],
+      "description": "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic."
+    },
+    {
+      "id": 12,
+      "title": "The Lion King",
+      "year": 1994,
+      "genre": [
+        "Animation",
+        "Adventure",
+        "Drama"
+      ],
+      "description": "Lion prince Simba flees his kingdom after the murder of his father, only to learn the true meaning of responsibility and bravery."
+    },
+    {
+      "id": 13,
+      "title": "Gladiator",
+      "year": 2000,
+      "genre": [
+        "Action",
+        "Adventure",
+        "Drama"
+      ],
+      "description": "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery."
+    },
+    {
+      "id": 14,
+      "title": "Jurassic Park",
+      "year": 1993,
+      "genre": [
+        "Action",
+        "Adventure",
+        "Sci-Fi"
+      ],
+      "description": "A pragmatic paleontologist visiting an almost complete theme park is tasked with protecting a couple of kids after a power failure causes the park's cloned dinosaurs to run loose."
+    },
+    {
+      "id": 15,
+      "title": "The Silence of the Lambs",
+      "year": 1991,
+      "genre": [
+        "Crime",
+        "Drama",
+        "Thriller"
+      ],
+      "description": "A young FBI cadet must receive the help of an incarcerated and manipulative cannibal killer to catch another serial killer."
+    },
+    {
+      "id": 16,
+      "title": "Avengers: Endgame",
+      "year": 2019,
+      "genre": [
+        "Action",
+        "Adventure",
+        "Drama"
+      ],
+      "description": "After the devastating events of Avengers: Infinity War, the universe is in ruins. The Avengers assemble once more in order to reverse Thanos' actions."
+    },
+    {
+      "id": 17,
+      "title": "The Wizard of Oz",
+      "year": 1939,
+      "genre": [
+        "Adventure",
+        "Family",
+        "Fantasy"
+      ],
+      "description": "Young Dorothy Gale and her dog Toto are swept away by a tornado to the magical land of Oz, where they embark on a journey to meet the Wizard."
+    },
+    {
+      "id": 18,
+      "title": "Black Panther",
+      "year": 2018,
+      "genre": [
+        "Action",
+        "Adventure",
+        "Sci-Fi"
+      ],
+      "description": "T'Challa, heir to the hidden but advanced kingdom of Wakanda, must step forward to lead his people into a new future."
+    },
+    {
+      "id": 19,
+      "title": "Frozen",
+      "year": 2013,
+      "genre": [
+        "Animation",
+        "Adventure",
+        "Comedy"
+      ],
+      "description": "When the newly crowned Queen Elsa accidentally uses her power to turn her home into winter, her sister Anna teams up with a mountain man to break the spell."
+    },
+    {
+      "id": 20,
+      "title": "The Avengers",
+      "year": 2012,
+      "genre": [
+        "Action",
+        "Adventure",
+        "Sci-Fi"
+      ],
+      "description": "Earth's mightiest heroes must come together to stop Loki and his alien army from enslaving humanity."
     }
   ]
 }
