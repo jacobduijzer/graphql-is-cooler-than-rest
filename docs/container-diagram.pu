@@ -1,0 +1,28 @@
+@startuml snackflix-container-diagram
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+title "SnackFlix Architecture"
+
+Person(movieWatcher, "Movie Watcher", "Wants to look for movies to watch, see the ratings, and get snack recommendations.", "")
+
+System_Boundary(c1, "SnackFlix") {
+    Container(api, "GraphQL API", "Hot Chocolate, .NET, GraphQL", "GraphQL API, front for all services.")
+    Container(accounts, "Accounts", ".NET API, JWT", "Used to authenticate users, provides a bearer token.")
+    Container(movies, "Movies", ".NET API", "Provides all movie information.")
+    Container(reviews, "Reviews", ".NET API", "Provides all movie reviews. ")
+    Container(snacks, "Snacks", ".NET API", "Provides snack recommendations for movies.")
+    Container(content, "Content API", "JSON Server", "Used as a fake datastore, serving all information from a single JSON file. Can handle all REST methods, data will reset after restart.")
+}
+
+Rel_Down(movieWatcher, api, "Uses")
+Rel_Down(api, accounts, "Uses")
+Rel_Down(api, movies, "Uses")
+Rel_Down(api, reviews, "Uses")
+Rel_Down(api, snacks, "Uses")
+
+Rel_Down(accounts, content, "Uses")
+Rel_Down(movies, content, "Uses")
+Rel_Down(reviews, content, "Uses")
+Rel_Down(snacks, content, "Uses")
+
+@enduml

@@ -1,16 +1,18 @@
 ﻿using Refit;
-using SnackFlix.Api.Reviews;
 
-namespace SnackFlix.Api;
+namespace SnackFlix.Api.Reviews;
 
 public interface IReviewService
 {
-    [Get("/ratings/{movieId}")]
-    Task<IEnumerable<int>> Ratings(int movieId);
+    [Get("/reviews/{movieId}")]
+    Task<IEnumerable<Review>> Ratings(int movieId);
     
     [Post("/review/add")]
     Task<Review> Add(Review review);
     
     [Post("/reviews")]
     Task<IEnumerable<Review>> Reviews([Body]List<int> movieIds);
+    
+    [Delete("/review/{reviewId}")]
+    Task Delete(int reviewId);
 }

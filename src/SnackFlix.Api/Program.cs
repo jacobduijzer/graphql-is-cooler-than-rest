@@ -1,28 +1,36 @@
 using SnackFlix.Api;
+using SnackFlix.Api.Accounts;
 using SnackFlix.Api.Movies;
 using SnackFlix.Api.Reviews;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.AddServiceDefaults();
+builder.ConfigureAuthentication();
+builder.ConfigureAuthorization();
 builder.AddServiceConnections();
 
+builder.Services.AddHttpContextAccessor();
 builder.Services
     .AddGraphQLServer()
+    .AddAuthorization()
     .AddInMemorySubscriptions()
     .AddDataLoader<ReviewsDataLoader>()
     .AddType<MovieType>()
     .AddType<ReviewType>()
+    .AddType<ReviewMutationType>()
     .AddQueryType(q => q.Name("queries"))
+    .AddType<AccountsQueries>()
     .AddType<MovieQueries>()
-    .AddMutationType(m => m.Name("mutations"))
-    .AddType<ReviewMutations>()
+    .AddMutationType<ReviewMutationType>()
     .AddSubscriptionType(s => s.Name("subscriptions"))
     .AddType<ReviewSubscriptions>()
     .AddFiltering();
 
 var app = builder.Build();
-app.UseSwaggerWithUi();
-app.UseWebSockets();
+app
+    .UseAuthentication()
+    .UseAuthorization()
+    .UseSwaggerUI()
+    .UseWebSockets();
 app.MapGraphQL();
-
 app.Run();

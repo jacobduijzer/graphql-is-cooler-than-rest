@@ -12,4 +12,7 @@ public interface IReviewsApi
     
     [Post("/reviews")]
     Task<Review> Add(Review review);
+    
+    [Delete("/reviews/{reviewId}")]
+    Task<IApiResponse> Delete(int reviewId);
 }

@@ -16,6 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\SnackFlix.Accounts\SnackFlix.Accounts.csproj" />
       <ProjectReference Include="..\SnackFlix.Api\SnackFlix.Api.csproj" />
       <ProjectReference Include="..\SnackFlix.Movies\SnackFlix.Movies.csproj" />
       <ProjectReference Include="..\SnackFlix.Reviews\SnackFlix.Reviews.csproj" />

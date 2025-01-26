@@ -1,7 +1,7 @@
 ﻿namespace SnackFlix.Api.Movies;
 
 [ExtendObjectType("queries")]
-public class MovieQueries(IMoviesApi movies)
+public class MovieQueries(IMoviesService movies)
 {
    [UseFiltering]
    [GraphQLName("movies")]

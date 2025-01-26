@@ -17,11 +17,8 @@ app.MapGet("/review/{reviewId}", async (IReviewsApi reviews, int reviewId) =>
     return review;
 });
 
-app.MapGet("/ratings/{movieId}", async (IReviewsApi reviews, int movieId) =>
-{
-    var allReviews = await reviews.Reviews(movieId);
-    return allReviews.Select(x => x.Rating).ToList();
-});
+app.MapGet("/reviews/{movieId}", async (IReviewsApi reviews, int movieId) =>
+    await reviews.Reviews(movieId));
 
 app.MapPost("/review/add", async (IReviewsApi reviews, [FromBody] Review review) =>
 {
@@ -41,6 +38,12 @@ app.MapPost("/reviews", async (IReviewsApi reviews, [FromBody] List<int> movieId
         allReviews.AddRange(review);
     }
     return allReviews;
+});
+
+app.MapDelete("/review/{reviewId}", async (IReviewsApi reviews, int reviewId) =>
+{
+    var result = await reviews.Delete(reviewId);
+    return result.IsSuccessStatusCode ? Results.NoContent() : Results.NotFound();
 });
 
 app.Run();

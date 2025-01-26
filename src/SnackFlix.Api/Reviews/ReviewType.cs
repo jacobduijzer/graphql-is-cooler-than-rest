@@ -1,6 +1,11 @@
-﻿namespace SnackFlix.Api.Reviews;
+namespace SnackFlix.Api.Reviews;
 
 public class ReviewType : ObjectType<Review>
 {
-    
+    protected override void Configure(IObjectTypeDescriptor<Review> descriptor)
+    {
+        descriptor
+            .Field(f => f.AccountId)
+            .Authorize("IsAdmin");
+    }
 }

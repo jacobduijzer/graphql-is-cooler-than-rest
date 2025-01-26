@@ -222,5 +222,31 @@
       "movieId": 1,
       "rating": 5
     }
+  ],
+  "accounts": [
+    {
+      "id": 1,
+      "firstName": "Jacob",
+      "lastName": "Duijzer",
+      "email": "admin@example.com",
+      "password": "password123",
+      "createdAt": "2023-01-01T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john.doe@example.com",
+      "password": "password123",
+      "createdAt": "2023-01-01T10:00:00Z"
+    },
+    {
+      "id": 3,
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "email": "jane.smith@example.com",
+      "password": "password123",
+      "createdAt": "2023-01-02T10:00:00Z"
+    }
   ]
 }

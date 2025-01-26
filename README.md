@@ -1,5 +1,47 @@
-# graphql-is-cooler-than-rest
-GraphQL is cooler than (the) REST!
+# GraphQL is cooler than (the) REST!
+
+This repository is used to demonstrate GraphQL, using [HotChocolate GraphQL](https://hotchocolate.io/), a .NET library for building GraphQL APIs.
+
+The goal of the application is simple: you can view movies and their ratings, and get snack recommendations based on the movie you're watching. This is how the architecture looks like:
+
+![Container diagram](./docs/snackflix-container-diagram.png)
+
+## Features
+
+- Queries: Fetch movies, with ratings and snack recommendations.
+- Mutations: Add, update or delete ratings.
+- Subscriptions: Get notified when movie is rated.
+- Resolvers: Fetch snack recommendations based on movie.
+- Data Loaders: Fetch movie ratings more efficiently.
+- Authentication & Authorization: Secure login, review management, and role-based access control.
+
+## Getting started
+
+### Prerequisites
+
+- [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
+- [Docker](https://www.docker.com/get-started)
+
+### Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/jacobduijzer/graphql-is-cooler-than-rest.git
+cd graphql-is-cooler-than-rest
+```
+2. Install dependencies
+```bash
+dotnet restore
+```
+3. Run the application
+```bash
+dotnet run --project src/Snackflix.AppHost --no-restore
+```
+4. Open the GraphQL Playground by clicking on the URL in the console.
+5. Wait for all resources to start, then open the Api url in your browser, by clicking on the URL of the SnackFlix.Api project (see image).
+![API Project](./docs/api-project.png)
+
+
 
 ## TODO List
 
@@ -17,8 +59,16 @@ GraphQL is cooler than (the) REST!
 - [x] Data Loaders
   - [x] Movie ratings 
 - [ ] Authentication & Authorization
+  - [x] Login 
+  - [x] Add Review (customer)
+  - [ ] Edit review (only my own reviews)
+  - [x] Remove (admin, roles)
 
 ## Movies
+
+## Reviews / Ratings
+
+## Accounts
 
 ```graphql
 query movies {
@@ -57,3 +107,8 @@ query movies {
     }
 }
 ```
+
+## Links
+
+- [HotChocolate GraphQL](https://hotchocolate.io/)
+- [GraphQL](https://graphql.org/)

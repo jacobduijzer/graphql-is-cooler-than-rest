@@ -18,7 +18,7 @@ public class MovieType : ObjectType<Movie>
         
         descriptor
             .Field("ratings")
-            .Type<ListType<IntType>>()
+            .Type<ListType<ReviewType>>()
             .Resolve(async (context) =>
             {
                 var reviewService = context.Service<IReviewService>();

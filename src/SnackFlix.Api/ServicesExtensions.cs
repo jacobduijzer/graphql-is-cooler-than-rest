@@ -1,5 +1,7 @@
 ﻿using Refit;
+using SnackFlix.Api.Accounts;
 using SnackFlix.Api.Movies;
+using SnackFlix.Api.Reviews;
 
 namespace SnackFlix.Api;
 
@@ -8,7 +10,11 @@ public static class ServicesExtensions
     public static WebApplicationBuilder AddServiceConnections(this WebApplicationBuilder builder)
     {
         builder.Services
-            .AddRefitClient<IMoviesApi>()
+            .AddRefitClient<IAccountsService>()
+            .ConfigureHttpClient(c => c.BaseAddress = new Uri("http+https://accounts"));
+        
+        builder.Services
+            .AddRefitClient<IMoviesService>()
             .ConfigureHttpClient(c => c.BaseAddress = new Uri("http+https://movies"));
         
         builder.Services

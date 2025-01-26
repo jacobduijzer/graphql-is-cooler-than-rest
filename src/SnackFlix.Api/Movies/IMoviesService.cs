@@ -2,7 +2,7 @@
 
 namespace SnackFlix.Api.Movies;
 
-public interface IMoviesApi
+public interface IMoviesService
 {
     [Get("/all")]
     Task<IEnumerable<Movie>> Movies();

@@ -1,3 +1,5 @@
+const string contentEndpoint = "CONTENT_ENDPOINT";
+
 var builder = DistributedApplication.CreateBuilder(args);
 
 var content = builder
@@ -6,15 +8,20 @@ var content = builder
     .WithBindMount("../../moviedata.json", "/data/db.json")
     .WithArgs("db.json");
 
+var accounts = builder
+    .AddProject<Projects.SnackFlix_Accounts>("accounts")
+    .WithEnvironment(contentEndpoint, content.GetEndpoint("http"));
+
 var movies = builder
     .AddProject<Projects.SnackFlix_Movies>("movies")
-    .WithEnvironment("CONTENT_ENDPOINT", content.GetEndpoint("http"));
+    .WithEnvironment(contentEndpoint, content.GetEndpoint("http"));
 var reviews = builder.AddProject<Projects
     .SnackFlix_Reviews>("reviews")
-    .WithEnvironment("CONTENT_ENDPOINT", content.GetEndpoint("http"));
+    .WithEnvironment(contentEndpoint, content.GetEndpoint("http"));
 var snacks = builder.AddProject<Projects.SnackFlix_Snacks>("snacks");
 
 var api = builder.AddProject<Projects.SnackFlix_Api>("api")
+    .WithReference(accounts)
     .WithReference(movies)
     .WithReference(snacks)
     .WithReference(reviews);
