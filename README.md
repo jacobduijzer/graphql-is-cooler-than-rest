@@ -41,6 +41,31 @@ dotnet run --project src/Snackflix.AppHost --no-restore
 5. Wait for all resources to start, then open the Api url in your browser, by clicking on the URL of the SnackFlix.Api project (see image).
 ![API Project](./docs/api-project.png)
 
+## Movies
+
+### Queries
+
+A simple list with all available movies:
+```graphql
+query movies {
+  movies {
+    title
+  }
+}
+```
+
+A list with all movies, including the ratings and snack recommendations:
+```graphql
+query allMoviesWithRatingsAndSnackRecommendations {
+  movies {
+    title
+    snacks
+    ratings {
+      rating
+    }
+  }
+}
+```
 
 
 ## TODO List
