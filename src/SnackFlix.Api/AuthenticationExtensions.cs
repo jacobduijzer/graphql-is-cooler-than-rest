@@ -35,9 +35,9 @@ public static class AuthenticationExtensions
     {
         builder.Services.AddAuthorization(configure =>
         {
-            //  configure.AddPolicy("IsAdmin", policy =>
-            //      policy.RequireAssertion(context =>
-            //          context.User.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "Admin")));
+            configure.AddPolicy("IsAdmin", policy =>
+                policy.RequireAssertion(context =>
+                    context.User.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "Admin")));
 
             // TODO: Make it work
             configure.AddPolicy("IsOwner", policy =>
