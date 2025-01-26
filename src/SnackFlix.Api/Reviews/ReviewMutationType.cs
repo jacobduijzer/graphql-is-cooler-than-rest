@@ -8,8 +8,8 @@ public class ReviewMutationType : ObjectType<ReviewMutations>
             .Field(f => f.Add(default,  default))
             .Authorize();
 
-        descriptor
-            .Field(f => f.Delete(default))
-            .Authorize("IsAdmin");
+        // descriptor
+        //     .Field(f => f.Delete(default))
+        //     .Authorize("IsOwner");
     }
 }

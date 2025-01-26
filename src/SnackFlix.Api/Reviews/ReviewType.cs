@@ -6,6 +6,6 @@ public class ReviewType : ObjectType<Review>
     {
         descriptor
             .Field(f => f.AccountId)
-            .Authorize("IsAdmin");
+            .Authorize("IsOwner");
     }
 }

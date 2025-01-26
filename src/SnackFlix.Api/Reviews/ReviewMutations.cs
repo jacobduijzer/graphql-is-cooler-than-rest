@@ -1,4 +1,5 @@
-﻿using HotChocolate.Subscriptions;
+﻿using HotChocolate.Authorization;
+using HotChocolate.Subscriptions;
 
 namespace SnackFlix.Api.Reviews;
 
@@ -12,6 +13,7 @@ public class ReviewMutations(IReviewService reviews, ITopicEventSender sender, I
         return new ReviewAddedPayload(newReview);
     }
 
+    [Authorize(Policy = "IsOwner")]
     public async Task<ReviewDeletedPayload> Delete(int reviewId)
     {
         await reviews.Delete(reviewId);

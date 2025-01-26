@@ -1,3 +1,6 @@
+using HotChocolate.Authorization;
+using HotChocolate.Resolvers;
+using Microsoft.AspNetCore.Authorization;
 using SnackFlix.Api;
 using SnackFlix.Api.Accounts;
 using SnackFlix.Api.Movies;
@@ -10,6 +13,7 @@ builder.ConfigureAuthorization();
 builder.AddServiceConnections();
 
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddSingleton<AuthorizationHandler<IsOwnerRequirement, IResolverContext>, IsOwnerHandler>();
 builder.Services
     .AddGraphQLServer()
     .AddAuthorization()

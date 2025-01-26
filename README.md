@@ -43,8 +43,6 @@ dotnet run --project src/Snackflix.AppHost --no-restore
 
 ## Movies
 
-### Queries
-
 A simple list with all available movies:
 ```graphql
 query movies {
@@ -66,6 +64,35 @@ query allMoviesWithRatingsAndSnackRecommendations {
   }
 }
 ```
+
+The same query, but now using a data resolver, to make the queries more efficient. Look at the tracings on the Aspire dashboard to see the difference:
+```graphql
+query moviesWithOptimizedRatings {
+  movies {
+    title
+    snacks
+    optimizedRatings {
+      rating
+    }
+  }
+}
+```
+
+A single movie can be viewed with a parameterized query:
+
+```graphql
+query movie {
+  movie(id: 1) {
+    title
+    snacks
+    ratings {
+      rating
+    }
+  }
+}
+```
+
+
 
 
 ## TODO List

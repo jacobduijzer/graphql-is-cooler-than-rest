@@ -7,6 +7,18 @@ public class MovieType : ObjectType<Movie>
     protected override void Configure(IObjectTypeDescriptor<Movie> descriptor)
     {
         descriptor
+            .Field(f => f.Year)
+            .UseFiltering();
+
+        descriptor
+            .Field(f => f.Title)
+            .UseFiltering();
+
+        descriptor
+            .Field(f => f.Genres)
+            .UseFiltering();
+        
+        descriptor
             .Field("snacks")
             .Type<ListType<StringType>>()
             .Resolve(async (context) =>
@@ -15,7 +27,7 @@ public class MovieType : ObjectType<Movie>
                 var movie = context.Parent<Movie>();
                 return await snackService.GetRecommendations(movie.Genres.ToList());
             });
-        
+
         descriptor
             .Field("ratings")
             .Type<ListType<ReviewType>>()
@@ -28,13 +40,12 @@ public class MovieType : ObjectType<Movie>
 
         descriptor
             .Field("optimizedRatings")
-            .Type<ListType<IntType>>()
+            .Type<ListType<ReviewType>>()
             .Resolve(async (context) =>
             {
                 var movie = context.Parent<Movie>();
                 var dataLoader = context.Services.GetRequiredService<ReviewsDataLoader>();
-                var reviews = await dataLoader.LoadAsync(movie.Id);
-                return reviews!.Select(x => x.Rating).ToList();
+                return await dataLoader.LoadAsync(movie.Id);
             });
     }
 }
