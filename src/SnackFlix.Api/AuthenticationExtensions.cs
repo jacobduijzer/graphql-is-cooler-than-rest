@@ -33,15 +33,14 @@ public static class AuthenticationExtensions
 
     public static WebApplicationBuilder ConfigureAuthorization(this WebApplicationBuilder builder)
     {
-        builder.Services.AddAuthorization(configure =>
+        builder.Services.AddAuthorization(options =>
         {
-            configure.AddPolicy("IsAdmin", policy =>
+            options.AddPolicy("IsAdmin", policy =>
                 policy.RequireAssertion(context =>
                     context.User.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "Admin")));
 
-            // TODO: Make it work
-            configure.AddPolicy("IsOwner", policy =>
-                policy.Requirements.Add(new IsOwnerRequirement()));
+            options.AddPolicy("IsOwnerOrAdmin", policy =>
+                policy.Requirements.Add(new IsOwnerOrAdminRequirement()));
         });
 
         return builder;

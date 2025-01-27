@@ -110,11 +110,14 @@ query movie {
     - [x] Ratings
 - [x] Data Loaders
   - [x] Movie ratings 
-- [ ] Authentication & Authorization
+- [x] Authentication & Authorization
   - [x] Login 
   - [x] Add Review (customer)
-  - [ ] Edit review (only my own reviews)
+  - [x] Edit review (only my own reviews)
   - [x] Remove (admin, roles)
+- [ ] Clients
+  - [ ] Strawberry Shake
+  - [ ] Apollo Client
 
 ## Movies
 

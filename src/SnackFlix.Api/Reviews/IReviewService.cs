@@ -7,6 +7,9 @@ public interface IReviewService
     [Get("/reviews/{movieId}")]
     Task<IEnumerable<Review>> Ratings(int movieId);
     
+    [Get("/review/{reviewId}")]
+    Task<IApiResponse<Review>> Review(int reviewId);
+    
     [Post("/review/add")]
     Task<Review> Add(Review review);
     

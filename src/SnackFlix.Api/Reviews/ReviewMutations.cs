@@ -12,9 +12,7 @@ public class ReviewMutations(IReviewService reviews, ITopicEventSender sender, I
         await sender.SendAsync(nameof(ReviewSubscriptions.OnReviewAdded), newReview);
         return new ReviewAddedPayload(newReview);
     }
-
-    [Authorize(Roles = ["Admin"])]
-    [Authorize(Policy = "IsOwner")]
+    
     public async Task<ReviewDeletedPayload> Delete(int reviewId)
     {
         await reviews.Delete(reviewId);
