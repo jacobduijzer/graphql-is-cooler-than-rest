@@ -10,7 +10,7 @@ public static class ServicesExtensions
     public static WebApplicationBuilder AddServiceConnections(this WebApplicationBuilder builder)
     {
         builder.Services
-            .AddRefitClient<IAccountsService>()
+            .AddRefitClient<IAccountService>()
             .ConfigureHttpClient(c => c.BaseAddress = new Uri("http+https://accounts"));
         
         builder.Services

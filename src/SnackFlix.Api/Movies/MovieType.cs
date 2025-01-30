@@ -7,18 +7,6 @@ public class MovieType : ObjectType<Movie>
     protected override void Configure(IObjectTypeDescriptor<Movie> descriptor)
     {
         descriptor
-            .Field(f => f.Year)
-            .UseFiltering();
-
-        descriptor
-            .Field(f => f.Title)
-            .UseFiltering();
-
-        descriptor
-            .Field(f => f.Genres)
-            .UseFiltering();
-        
-        descriptor
             .Field("snacks")
             .Type<ListType<StringType>>()
             .Resolve(async (context) =>

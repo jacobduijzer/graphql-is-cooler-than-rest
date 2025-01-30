@@ -115,6 +115,7 @@ query movie {
   - [x] Add Review (customer)
   - [x] Edit review (only my own reviews)
   - [x] Remove (admin, roles)
+  - [ ] Fine-grained (account id on review)
 - [ ] Clients
   - [ ] Strawberry Shake
   - [ ] Apollo Client

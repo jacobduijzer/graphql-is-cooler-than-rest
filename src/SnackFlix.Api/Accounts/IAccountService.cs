@@ -2,7 +2,7 @@ using Refit;
 
 namespace SnackFlix.Api.Accounts;
 
-public interface IAccountsService
+public interface IAccountService
 {
     [Get("/login")]
     Task<LoginResult> Login(string email, string password);

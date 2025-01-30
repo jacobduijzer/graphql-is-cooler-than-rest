@@ -1,6 +1,6 @@
 ﻿namespace SnackFlix.Api.Reviews;
 
-public class ReviewMutationType : ObjectType<ReviewMutations>
+public class ReviewMutationsType : ObjectTypeExtension<ReviewMutations>
 {
     protected override void Configure(IObjectTypeDescriptor<ReviewMutations> descriptor)
     {

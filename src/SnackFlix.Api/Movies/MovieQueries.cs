@@ -3,8 +3,6 @@
 [ExtendObjectType("queries")]
 public class MovieQueries(IMoviesService movies)
 {
-   [UseFiltering]
-   [GraphQLName("movies")]
    public async Task<IQueryable<Movie>> AllMovies() 
    { 
       var allMovies = await movies.Movies();

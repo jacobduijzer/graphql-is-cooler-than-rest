@@ -1,8 +1,8 @@
-﻿using HotChocolate.Authorization;
-using HotChocolate.Subscriptions;
+﻿using HotChocolate.Subscriptions;
 
 namespace SnackFlix.Api.Reviews;
 
+[ExtendObjectType("mutations")]
 public class ReviewMutations(IReviewService reviews, ITopicEventSender sender, IHttpContextAccessor contextAccessor)
 {
     public async Task<ReviewAddedPayload> Add(int movieId, int rating)
