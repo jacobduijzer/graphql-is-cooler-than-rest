@@ -25,8 +25,8 @@ app.MapPost("/review/add", async (IReviewsApi reviews, [FromBody] Review review)
     if(review.Rating is < 0 or > 5)
         return Results.BadRequest("Rating must be between 0 and 5");
     
-    await reviews.Add(review);
-    return Results.Created($"/review/{review.Id}", review);
+    var addedReview = await reviews.Add(review);
+    return Results.Created($"/review/{addedReview.Id}", addedReview);
 });
 
 app.MapPost("/reviews", async (IReviewsApi reviews, [FromBody] List<int> movieIds) =>

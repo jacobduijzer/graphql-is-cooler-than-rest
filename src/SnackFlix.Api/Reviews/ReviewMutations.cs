@@ -10,7 +10,7 @@ public class ReviewMutations(IReviewService reviews, ITopicEventSender sender, I
         var accountId = contextAccessor.GetAccountId();
         var newReview = await reviews.Add(new Review(0, accountId, movieId, rating));
         await sender.SendAsync(nameof(ReviewSubscriptions.OnReviewAdded), newReview);
-        return new ReviewAddedPayload(newReview);
+        return new ReviewAddedPayload($"Your review, with id '{newReview.Id}' has been added");
     }
     
     public async Task<ReviewDeletedPayload> Delete(int reviewId)

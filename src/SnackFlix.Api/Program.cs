@@ -11,7 +11,6 @@ builder.ConfigureAuthorization();
 builder.AddServiceConnections();
 
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddSingleton<IAuthorizationHandler, IsOwnerOrAdminRequirementHandler>();
 builder.Services
     .AddGraphQLServer()
     .AddAuthorization()
@@ -42,9 +41,7 @@ var app = builder.Build();
 app
     .UseAuthentication()
     .UseAuthorization();
-app
-    .UseSwaggerUI()
-    .UseWebSockets();
+app.UseWebSockets();
 app.MapGraphQL();
 app.UseCors();
 app.Run();

@@ -9,12 +9,15 @@ public class IndexModel(ISnackFlixClient snackFlixClient, ILogger<IndexModel> lo
     public async Task OnGetAsync()
     {
         var data = await snackFlixClient.GetMovieDetailPage.ExecuteAsync();
+        if (data.Errors.Any() || data.Data == null)
+            return;
+        
         Movie = data.Data.Movie;
         Movies = data.Data.AllMovies;
         Genres = data.Data.Genres;
     }
 
-    public IReadOnlyList<string> Genres { get; set; }
-    public IGetMovieDetailPage_Movie Movie { get; set; }
-    public IReadOnlyList<IGetMovieDetailPage_AllMovies> Movies { get; set; }
+    public IReadOnlyList<string>? Genres { get; set; }
+    public IGetMovieDetailPage_Movie? Movie { get; set; }
+    public IReadOnlyList<IGetMovieDetailPage_AllMovies>? Movies { get; set; }
 }

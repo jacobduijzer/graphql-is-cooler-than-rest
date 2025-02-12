@@ -38,9 +38,6 @@ public static class AuthenticationExtensions
             options.AddPolicy("IsAdmin", policy =>
                 policy.RequireAssertion(context =>
                     context.User.HasClaim(c => c.Type == ClaimTypes.Role && c.Value == "Admin")));
-
-            options.AddPolicy("IsOwnerOrAdmin", policy =>
-                policy.Requirements.Add(new IsOwnerOrAdminRequirement()));
         });
 
         return builder;
