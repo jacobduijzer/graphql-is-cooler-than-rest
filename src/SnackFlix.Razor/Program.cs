@@ -1,5 +1,9 @@
 var builder = WebApplication.CreateBuilder(args);
 builder.AddServiceDefaults();
+builder.Services
+    .AddSnackFlixClient()
+    .ConfigureHttpClient(client => client.BaseAddress = new Uri("http+https://api/graphql"));
+
 builder.Services.AddRazorPages();
 
 var app = builder.Build();

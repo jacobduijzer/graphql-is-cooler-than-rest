@@ -1,10 +1,37 @@
 ﻿@page
+@inject ISnackFlixClient SnackflixClient
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center container">
+    <h1>Strawberry Shake GraphQL Client Demo</h1>
+    <h2>🎬 Movie Detail Page</h2>
+
+    <div class="content">
+        <div class="movie-card">
+            <h2>@Model.Movie.Title (@Model.Movie.Year)</h2>
+            <p><strong>Genres:</strong>@string.Join(", ", Model.Movie.Genres)</p>
+            <p>@Model.Movie.Description</p>
+        </div>
+
+        <div class="side-section">
+            <h3>Available Genres</h3>
+            <ul class="genres">
+                @foreach (var genre in Model.Genres)
+                {
+                    <li>@genre</li>
+                }
+            </ul>
+
+            <h3>All Movies</h3>
+            <ul class="movies">
+                @foreach (var movie in Model.Movies)
+                {
+                    <li>@movie.Title</li>
+                }
+            </ul>
+        </div>
+    </div>
 </div>

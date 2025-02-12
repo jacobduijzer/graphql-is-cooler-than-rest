@@ -62,7 +62,6 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   color: black;
-  /*background-color: #f4f4f4;*/
 }
 
 .container {

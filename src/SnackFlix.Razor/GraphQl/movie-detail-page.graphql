@@ -1,0 +1,18 @@
+query GetMovieDetailPage {
+  # details for movie with ID 1
+  movie(id: 1) {
+    title
+    description
+    year
+    genres
+  }
+
+  # all available genres
+  genres
+
+  # ID + Title for all movies
+  allMovies {
+    id
+    title
+  }
+}
