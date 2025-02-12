@@ -17,5 +17,5 @@ public interface IReviewService
     Task<IEnumerable<Review>> Reviews([Body]List<int> movieIds);
     
     [Delete("/review/{reviewId}")]
-    Task Delete(int reviewId);
+    Task<IApiResponse> Delete(int reviewId);
 }

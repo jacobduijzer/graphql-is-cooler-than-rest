@@ -11,6 +11,7 @@ builder.ConfigureAuthorization();
 builder.AddServiceConnections();
 
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddSingleton<IAuthorizationHandler, IsOwnerOrAdminRequirementHandler>();
 builder.Services
     .AddGraphQLServer()
     .AddAuthorization()
