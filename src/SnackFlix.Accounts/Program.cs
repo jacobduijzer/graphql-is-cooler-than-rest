@@ -17,4 +17,10 @@ app.MapGet("/login", async (IdentityService identity, string email, string passw
     return !string.IsNullOrEmpty(login.BearerToken) ? Results.Ok(login) : Results.Unauthorized();
 });
 
+app.MapPost("/create", async (IAccountsApi accounts, string firstName, string lastName, string email, string password) =>
+{
+    var account = await accounts.Create(new CreateAccountPayload(0, firstName, lastName, email, password, DateTime.Now));
+    return account;
+});
+
 app.Run();

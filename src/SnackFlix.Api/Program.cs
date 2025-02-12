@@ -23,11 +23,20 @@ builder.Services
     .AddType<MovieQueries>()
     .AddTypeExtension<MovieQueriesType>()
     .AddMutationType(m => m.Name("mutations"))
+    .AddType<AccountMutations>()
     .AddType<ReviewMutations>()
     .AddTypeExtension<ReviewMutationsType>()
     .AddSubscriptionType(s => s.Name("subscriptions"))
+    .AddType<AccountSubscriptions>()
     .AddType<ReviewSubscriptions>()
     .AddFiltering();
+
+builder.Services.AddCors(options =>
+    options.AddDefaultPolicy(corsBuilder =>
+            corsBuilder
+                .AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod()));
 
 var app = builder.Build();
 app
@@ -37,4 +46,5 @@ app
     .UseSwaggerUI()
     .UseWebSockets();
 app.MapGraphQL();
+app.UseCors();
 app.Run();

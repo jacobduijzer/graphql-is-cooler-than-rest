@@ -13,12 +13,14 @@
 
     <ItemGroup>
         <PackageReference Include="Aspire.Hosting.AppHost" Version="9.0.0"/>
+        <PackageReference Include="Aspire.Hosting.NodeJs" Version="9.0.0" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\SnackFlix.Accounts\SnackFlix.Accounts.csproj" />
       <ProjectReference Include="..\SnackFlix.Api\SnackFlix.Api.csproj" />
       <ProjectReference Include="..\SnackFlix.Movies\SnackFlix.Movies.csproj" />
+      <ProjectReference Include="..\SnackFlix.Razor\SnackFlix.Razor\SnackFlix.Razor.csproj" />
       <ProjectReference Include="..\SnackFlix.Reviews\SnackFlix.Reviews.csproj" />
       <ProjectReference Include="..\SnackFlix.Snacks\SnackFlix.Snacks.csproj" />
     </ItemGroup>

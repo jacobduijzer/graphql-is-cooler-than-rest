@@ -16,7 +16,7 @@ public class SnackRecommendationService
             .Take(NumberOfRecommendations) 
             .ToList();
 
-        return recommendedSnacks.Any()
+        return recommendedSnacks.Count != 0
             ? recommendedSnacks
             : ["Popcorn", "Cookies", "Water"];
     }

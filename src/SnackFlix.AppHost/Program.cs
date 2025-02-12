@@ -26,4 +26,15 @@ var api = builder.AddProject<Projects.SnackFlix_Api>("api")
     .WithReference(snacks)
     .WithReference(reviews);
 
+builder.AddProject<Projects.SnackFlix_Razor>("razor")
+    .WithReference(api)
+    .WaitFor(api);
+
+builder.AddNpmApp("vue", "../SnackFlix.Vue")
+    .WithReference(api)
+    .WaitFor(api)
+    .WithHttpEndpoint(env: "PORT")
+    .WithExternalHttpEndpoints()
+    .PublishAsDockerFile();
+
 builder.Build().Run();

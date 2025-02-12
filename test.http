@@ -1,0 +1,11 @@
+POST http://localhost:5001/accounts/
+Content-Type: application/json
+
+{
+  "id": 0,
+  "firstName": "Jacob",
+  "lastName": "Duijzer",
+  "email": "jacob@duijzer.com",
+  "password": "password123",
+  "createdAt": "2025-02-12T11:17:00Z"
+}
