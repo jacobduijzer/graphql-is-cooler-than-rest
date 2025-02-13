@@ -1,6 +1,6 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
-BASE_PATH=$HOME/code/github/graphql-is-cooler-than-rest/src
+source helpers.sh
 
 files=(
 	"SnackFlix.Razor/Program.cs"
@@ -9,9 +9,4 @@ files=(
 	"SnackFlix.Razor/Pages/Index.cshtml"
 )
 
-i=1
-for file in "${files[@]}"; do
-	echo "Opening file: $BASE_PATH/$file"
-	rider $BASE_PATH/$file --column $i
-	((i++))
-done
+openFiles "${files[@]}"

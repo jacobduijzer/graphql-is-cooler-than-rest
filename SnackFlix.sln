@@ -15,6 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		docs\openers\5-auth.sh = docs\openers\5-auth.sh
 		docs\openers\6-javascript.sh = docs\openers\6-javascript.sh
 		docs\openers\7-strawberry-shake.sh = docs\openers\7-strawberry-shake.sh
+		docs\openers\helpers.sh = docs\openers\helpers.sh
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnackFlix.AppHost", "src\SnackFlix.AppHost\SnackFlix.AppHost.csproj", "{EB6DD358-5271-467B-983E-C963497CF042}"
