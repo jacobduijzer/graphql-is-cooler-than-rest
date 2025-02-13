@@ -14,6 +14,13 @@ The goal of the application is simple: you can view movies and their ratings, an
 - Resolvers: Fetch snack recommendations based on movie.
 - Data Loaders: Fetch movie ratings more efficiently.
 - Authentication & Authorization: Secure login, review management, and role-based access control.
+- Front-end demo apps:
+  - Vue (JavasScript GraphQL Client) 
+  - Razor Pages (.NET Strawberry Shake GraphQL Client)
+
+## Slides
+
+Slides of my talk are available [here](./slides.pdf).
 
 ## Getting started
 
@@ -21,6 +28,7 @@ The goal of the application is simple: you can view movies and their ratings, an
 
 - [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
 - [Docker](https://www.docker.com/get-started)
+- [Nodejs](https://nodejs.org/en)
 
 ### Installation
 
@@ -92,9 +100,6 @@ query movie {
 }
 ```
 
-
-
-
 ## TODO List
 
 - [x] Queries
@@ -115,10 +120,10 @@ query movie {
   - [x] Add Review (customer)
   - [x] Edit review (only my own reviews)
   - [x] Remove (admin, roles)
-  - [ ] Fine-grained (account id on review)
-- [ ] Clients
-  - [ ] Strawberry Shake
-  - [ ] Apollo Client
+  - [x] Fine-grained (account id on review)
+- [x] Clients
+  - [x] Strawberry Shake
+  - [x] Apollo Client
 
 ## Movies
 
