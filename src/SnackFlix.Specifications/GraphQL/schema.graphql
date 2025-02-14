@@ -1,0 +1,139 @@
+schema {
+  query: queries
+  mutation: mutations
+  subscription: subscriptions
+}
+
+type queries {
+  login(email: String! password: String!): LoginResult!
+  movies(where: MovieFilterInput): [Movie]
+  movie(id: Int!): Movie!
+  moviesByGenre(genre: String!): [Movie!]!
+  genres: [String!]!
+  allMovies: [Movie!]!
+}
+
+type mutations {
+  addReview(movieId: Int! rating: Int!): ReviewAddedPayload!
+  deleteReview(reviewId: Int!): ReviewDeletedPayload!
+  createAccount(firstName: String! lastName: String! email: String! password: String!): AccountAddedPayload!
+  add(movieId: Int! rating: Int!): ReviewAddedPayload!
+  delete(reviewId: Int!): ReviewDeletedPayload!
+}
+
+type subscriptions {
+  onAccountAdded: AccountSubscriptionPayload!
+  onReviewAdded: Review
+  onReviewAddedForMovie(movieId: Int!): Review
+}
+
+"Defines when a policy shall be executed."
+enum ApplyPolicy {
+  "Before the resolver was executed."
+  BEFORE_RESOLVER
+  "After the resolver was executed."
+  AFTER_RESOLVER
+  "The policy is applied in the validation step before the execution."
+  VALIDATION
+}
+
+input MovieFilterInput {
+  and: [MovieFilterInput!]
+  or: [MovieFilterInput!]
+  id: IntOperationFilterInput
+  title: StringOperationFilterInput
+  description: StringOperationFilterInput
+  year: IntOperationFilterInput
+  genres: ListStringOperationFilterInput
+}
+
+type Movie {
+  snacks: [String]
+  ratings: [Review]
+  optimizedRatings: [Review]
+  id: Int!
+  title: String!
+  description: String!
+  year: Int!
+  genres: [String!]!
+}
+
+input IntOperationFilterInput {
+  eq: Int
+  neq: Int
+  in: [Int]
+  nin: [Int]
+  gt: Int
+  ngt: Int
+  gte: Int
+  ngte: Int
+  lt: Int
+  nlt: Int
+  lte: Int
+  nlte: Int
+}
+
+input StringOperationFilterInput {
+  and: [StringOperationFilterInput!]
+  or: [StringOperationFilterInput!]
+  eq: String
+  neq: String
+  contains: String
+  ncontains: String
+  in: [String]
+  nin: [String]
+  startsWith: String
+  nstartsWith: String
+  endsWith: String
+  nendsWith: String
+}
+
+input ListStringOperationFilterInput {
+  all: StringOperationFilterInput
+  none: StringOperationFilterInput
+  some: StringOperationFilterInput
+  any: Boolean
+}
+
+type Review {
+  accountId: Int!
+  id: Int!
+  movieId: Int!
+  rating: Int!
+}
+
+type LoginResult {
+  bearerToken: String!
+}
+
+type ReviewAddedPayload {
+  message: String!
+}
+
+type ReviewDeletedPayload {
+  reviewId: Int!
+  message: String!
+}
+
+type AccountSubscriptionPayload {
+  account: Account!
+  message: String!
+}
+
+type AccountAddedPayload {
+  account: Account!
+}
+
+type Account {
+  id: Int!
+  firstName: String!
+  lastName: String!
+  email: String!
+  createdAt: DateTime!
+}
+
+"The `DateTime` scalar represents an ISO-8601 compliant date time type."
+scalar DateTime
+
+"The purpose of the `cost` directive is to define a `weight` for GraphQL types, fields, and arguments. Static analysis can use these weights when calculating the overall cost of a query or response."
+directive @cost("The `weight` argument defines what value to add to the overall cost for every appearance, or possible appearance, of a type, field, argument, etc." weight: String!) on SCALAR | OBJECT | FIELD_DEFINITION | ARGUMENT_DEFINITION | ENUM | INPUT_FIELD_DEFINITION

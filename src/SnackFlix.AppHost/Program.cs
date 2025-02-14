@@ -38,3 +38,4 @@ builder.AddNpmApp("vue", "../SnackFlix.Vue")
     .PublishAsDockerFile();
 
 builder.Build().Run();
+
