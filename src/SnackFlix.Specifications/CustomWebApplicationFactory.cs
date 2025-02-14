@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
 using SnackFlix.Api;
 using SnackFlix.Api.Movies;
+using SnackFlix.Api.Reviews;
 using SnackFlix.Specifications.Fakes;
 
 namespace SnackFlix.Specifications;
@@ -15,6 +16,8 @@ public class CustomWebApplicationFactory :  WebApplicationFactory<Program>
         builder.ConfigureServices(services =>
         {
             services.AddScoped<IMoviesService, MoviesServiceFake>();
+            services.AddScoped<ISnackService, SnackServiceFake>();
+            services.AddScoped<IReviewService, ReviewServiceFake>();
         });
     }
     

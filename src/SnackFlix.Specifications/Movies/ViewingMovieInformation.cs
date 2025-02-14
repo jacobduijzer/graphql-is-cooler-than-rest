@@ -29,6 +29,12 @@ public class ViewingMovieInformation(CustomWebApplicationFactory factory, Scenar
     {
         // DO NOTHING
     }
+    
+    [Given(@"Alex has selected the movie ""(.*)""")]
+    public void GivenAlexHasSelectedTheMovie(string movieTitle)
+    {
+        // DO NOTHING
+    }
 
     [When(@"he searches for a movie to watch")]
     public async Task WhenHeSearchesForAMovieToWatch()
@@ -41,6 +47,13 @@ public class ViewingMovieInformation(CustomWebApplicationFactory factory, Scenar
     public async Task WhenHeGoesToTheDetailPage()
     {
         var movieDetailResult = await factory.CreateSnackFlixClient().MovieDetailsPage.ExecuteAsync();
+        scenarioContext.Add(MoviesResult, movieDetailResult);
+    }
+    
+    [When(@"he requests the movie details with snack recommendations and ratings")]
+    public async Task WhenHeRequestsTheMovieDetailsWithSnackRecommendationsAndRatings()
+    {
+        var movieDetailResult = await factory.CreateSnackFlixClient().MovieDetailsPageWithSnacksAndRatings.ExecuteAsync();
         scenarioContext.Add(MoviesResult, movieDetailResult);
     }
 
@@ -77,5 +90,21 @@ public class ViewingMovieInformation(CustomWebApplicationFactory factory, Scenar
     {
         var movieDetailResult = scenarioContext.Get<IOperationResult<IMovieDetailsPageResult>>(MoviesResult);
         Assert.NotNull(movieDetailResult.Data.AllMovies);
+    }
+
+    [Then(@"he sees the following movie details")]
+    public void ThenHeSeesTheFollowingMovieDetails(Table table)
+    {
+        var movieDetailResult = scenarioContext.Get<IOperationResult<IMovieDetailsPageWithSnacksAndRatingsResult>>(MoviesResult);
+        Assert.Empty(movieDetailResult.Errors);
+        // TODO 
+    }
+
+    [Then(@"he gets the following snack recommendations: ""(.*)""")]
+    public void ThenHeGetsTheFollowingSnackRecommendations(string recomendationString)
+    {
+        var recommendations = recomendationString.Split(",", StringSplitOptions.TrimEntries);
+        var movieDetailResult = scenarioContext.Get<IOperationResult<IMovieDetailsPageWithSnacksAndRatingsResult>>(MoviesResult);   
+        Assert.All(recommendations, genre => Assert.Contains(genre, movieDetailResult.Data.Movie.Snacks));
     }
 }
