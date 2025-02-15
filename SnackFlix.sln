@@ -36,6 +36,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnackFlix.Razor", "src\Snac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnackFlix.Specifications", "src\SnackFlix.Specifications\SnackFlix.Specifications.csproj", "{6FD05752-F570-48DA-B7FC-FFF2304E1690}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnackFlix.Testing", "src\SnackFlix.Testing\SnackFlix.Testing.csproj", "{3B4945BD-3292-4367-B778-FDB1183B1BD4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,5 +83,9 @@ Global
 		{6FD05752-F570-48DA-B7FC-FFF2304E1690}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FD05752-F570-48DA-B7FC-FFF2304E1690}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FD05752-F570-48DA-B7FC-FFF2304E1690}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B4945BD-3292-4367-B778-FDB1183B1BD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B4945BD-3292-4367-B778-FDB1183B1BD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B4945BD-3292-4367-B778-FDB1183B1BD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B4945BD-3292-4367-B778-FDB1183B1BD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

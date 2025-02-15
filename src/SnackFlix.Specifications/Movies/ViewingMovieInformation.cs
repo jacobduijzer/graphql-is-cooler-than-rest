@@ -8,7 +8,7 @@ namespace SnackFlix.Specifications.Movies;
 
 [Binding]
 public class ViewingMovieInformation(CustomWebApplicationFactory factory, ScenarioContext scenarioContext) :
-    IClassFixture<IClassFixture<WebApplicationFactory<Program>>>
+    IClassFixture<WebApplicationFactory<Program>>
 {
     private const string MoviesResult = "movies-result";
 
@@ -29,7 +29,7 @@ public class ViewingMovieInformation(CustomWebApplicationFactory factory, Scenar
     {
         // DO NOTHING
     }
-    
+
     [Given(@"Alex has selected the movie ""(.*)""")]
     public void GivenAlexHasSelectedTheMovie(string movieTitle)
     {
@@ -49,11 +49,12 @@ public class ViewingMovieInformation(CustomWebApplicationFactory factory, Scenar
         var movieDetailResult = await factory.CreateSnackFlixClient().MovieDetailsPage.ExecuteAsync();
         scenarioContext.Add(MoviesResult, movieDetailResult);
     }
-    
+
     [When(@"he requests the movie details with snack recommendations and ratings")]
     public async Task WhenHeRequestsTheMovieDetailsWithSnackRecommendationsAndRatings()
     {
-        var movieDetailResult = await factory.CreateSnackFlixClient().MovieDetailsPageWithSnacksAndRatings.ExecuteAsync();
+        var movieDetailResult =
+            await factory.CreateSnackFlixClient().MovieDetailsPageWithSnacksAndRatings.ExecuteAsync();
         scenarioContext.Add(MoviesResult, movieDetailResult);
     }
 
@@ -95,16 +96,24 @@ public class ViewingMovieInformation(CustomWebApplicationFactory factory, Scenar
     [Then(@"he sees the following movie details")]
     public void ThenHeSeesTheFollowingMovieDetails(Table table)
     {
-        var movieDetailResult = scenarioContext.Get<IOperationResult<IMovieDetailsPageWithSnacksAndRatingsResult>>(MoviesResult);
+        var expectedMovieDetails = table.CreateInstance<(string Title, int Year, string Genres)>();
+        var genres = expectedMovieDetails.Genres.Split(",", StringSplitOptions.TrimEntries);
+        
+        var movieDetailResult =
+            scenarioContext.Get<IOperationResult<IMovieDetailsPageWithSnacksAndRatingsResult>>(MoviesResult);
         Assert.Empty(movieDetailResult.Errors);
-        // TODO 
+        Assert.NotNull(movieDetailResult.Data);
+        Assert.Equal(expectedMovieDetails.Title, movieDetailResult.Data.Movie.Title);
+        Assert.Equal(expectedMovieDetails.Year, movieDetailResult.Data.Movie.Year);
+        Assert.All(genres, genre => Assert.Contains(genre, movieDetailResult.Data.Movie.Genres));
     }
 
     [Then(@"he gets the following snack recommendations: ""(.*)""")]
     public void ThenHeGetsTheFollowingSnackRecommendations(string recomendationString)
     {
         var recommendations = recomendationString.Split(",", StringSplitOptions.TrimEntries);
-        var movieDetailResult = scenarioContext.Get<IOperationResult<IMovieDetailsPageWithSnacksAndRatingsResult>>(MoviesResult);   
+        var movieDetailResult =
+            scenarioContext.Get<IOperationResult<IMovieDetailsPageWithSnacksAndRatingsResult>>(MoviesResult);
         Assert.All(recommendations, genre => Assert.Contains(genre, movieDetailResult.Data.Movie.Snacks));
     }
 }

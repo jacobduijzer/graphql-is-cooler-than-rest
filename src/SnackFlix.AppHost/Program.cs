@@ -39,3 +39,5 @@ builder.AddNpmApp("vue", "../SnackFlix.Vue")
 
 builder.Build().Run();
 
+public partial class Program { }
+

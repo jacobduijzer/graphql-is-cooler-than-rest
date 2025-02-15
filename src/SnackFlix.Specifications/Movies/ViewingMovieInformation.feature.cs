@@ -188,17 +188,21 @@ namespace SnackFlix.Specifications.Movies
         await testRunner.WhenAsync("he requests the movie details with snack recommendations and ratings", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
                 global::Reqnroll.Table table1 = new global::Reqnroll.Table(new string[] {
-                            "Title",
-                            "Year",
-                            "Genres"});
+                            "Field",
+                            "Value"});
                 table1.AddRow(new string[] {
-                            "The Shawshank Redemption",
-                            "1997",
+                            "Title",
+                            "The Shawshank Redemption"});
+                table1.AddRow(new string[] {
+                            "Year",
+                            "1997"});
+                table1.AddRow(new string[] {
+                            "Genres",
                             "Crime, Drama"});
 #line 19
         await testRunner.ThenAsync("he sees the following movie details", ((string)(null)), table1, "Then ");
 #line hidden
-#line 22
+#line 24
         await testRunner.AndAsync("he gets the following snack recommendations: \"M&Ms, Croky Chips\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }

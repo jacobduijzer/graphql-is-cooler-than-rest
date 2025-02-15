@@ -17,6 +17,8 @@ Feature: Viewing movie information
         Given Alex has selected the movie "The Shawshank Redemption"
         When he requests the movie details with snack recommendations and ratings
         Then he sees the following movie details
-          | Title                    | Year | Genres       |
-          | The Shawshank Redemption | 1997 | Crime, Drama |
+          | Field  | Value                    |
+          | Title  | The Shawshank Redemption |
+          | Year   | 1997                     |
+          | Genres | Crime, Drama             |
         And he gets the following snack recommendations: "M&Ms, Croky Chips"

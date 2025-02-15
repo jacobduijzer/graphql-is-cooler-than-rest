@@ -14,6 +14,11 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton<IAuthorizationHandler, IsOwnerOrAdminRequirementHandler>();
 builder.Services
     .AddGraphQLServer()
+    .ModifyPagingOptions(opt =>
+    {
+        opt.IncludeTotalCount = true; 
+        opt.MaxPageSize = 5;
+    })
     .AddAuthorization()
     .AddInMemorySubscriptions()
     .AddDataLoader<ReviewsDataLoader>()
@@ -29,6 +34,7 @@ builder.Services
     .AddSubscriptionType(s => s.Name("subscriptions"))
     .AddType<AccountSubscriptions>()
     .AddType<ReviewSubscriptions>()
+    .AddPagingArguments()
     .AddFiltering();
 
 builder.Services.AddCors(options =>
