@@ -9,7 +9,7 @@ openFile() {
   if [[ "$OS" == "Darwin" ]]; then
     open -na "Rider.app" --args "$filename"
   elif [[ "$OS" == "Linux" ]]; then
-    rider $BASE_PATH/$filename 
+    rider $filename 
   else
     echo "Unsupported OS: $OS"
     return 1
