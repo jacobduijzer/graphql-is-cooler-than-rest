@@ -29,7 +29,7 @@ builder.Services
     .AddTypeExtension<MovieQueriesType>()
     .AddMutationType(m => m.Name("mutations"))
     .AddType<AccountMutations>()
-    .AddType<ReviewMutations>()
+    // .AddType<ReviewMutations>()
     .AddTypeExtension<ReviewMutationsType>()
     .AddSubscriptionType(s => s.Name("subscriptions"))
     .AddType<AccountSubscriptions>()

@@ -6,6 +6,7 @@ namespace SnackFlix.Api.Accounts;
 public class AccountMutations(IAccountService accounts, ITopicEventSender sender)
 {
     [GraphQLName("createAccount")]
+    [GraphQLDescription("Add a new account.")]
     public async Task<AccountAddedPayload> Add(
         string firstName, 
         string lastName, 

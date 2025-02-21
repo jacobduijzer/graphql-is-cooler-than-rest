@@ -7,6 +7,7 @@ public class MovieQueriesType : ObjectTypeExtension<MovieQueries>
         descriptor
             .Field(f => f.AllMovies())
             .Name("movies")
+            .Description("Returns all movies from the database.")
             .Type<ListType<MovieType>>()
             .UsePaging()
             .UseFiltering();
